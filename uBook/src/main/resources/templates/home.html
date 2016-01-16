@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+<link rel="stylesheet" th:href="@{/css/main.css}" />
+
+<!-- <th:block layout:fragment="stylesheets"></th:block> -->
+</head>
+
+<body>
+	<!-- <div th:replace="fragments/header :: header">Header</div>
+	<div class="container" layout:fragment="content">Content</div>
+	<div th:replace="fragments/footer :: footer">Footer</div> -->
+
+	<script th:src="@{/js/jquery.min.js}"></script>
+	<script th:src="@{/js/bootstrap.min.js}"></script>
+	<script th:inline="javascript">
+		function getPath(url) {
+			// ajout du contexte Tomcat
+			var context = /*[[@{/}]]*/'/';
+			return context + url;
+		}
+	</script>
+
+	<!-- Start Navbar -->
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand">SportBooking</a>
+			</div>
+		</div>
+	</nav>
+	<!-- Navbar End -->
+	<!-- Start Main Body Section -->
+	<div class="mainbody-section text-center">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2"></div>
+				<div class="col-md-4">
+					<div class="menu-item green">
+						<p>My Account</p>
+					</div>
+					<a href="uBook/booking">
+						<div class="menu-item light-red ">
+
+
+							<p>Book</p>
+						</div>
+					</a>
+				</div>
+
+				<div class="col-md-4">
+					<div class="menu-item color">
+						<p>My Reservation</p>
+					</div>
+
+					<div class="menu-item blue">
+						<p>See other rooms</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div th:replace="fragments/book :: book">Book</div>
+	<!-- End Main Body Section -->
+
+	<!-- 	<th:block layout:fragment="scripts"></th:block> -->
+
+
+
+</body>
+</html>
