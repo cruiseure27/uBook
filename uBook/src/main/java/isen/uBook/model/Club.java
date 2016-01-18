@@ -16,14 +16,6 @@ public class Club {
 	@Getter
 	@Setter
 	private Integer id;
-	
-//	@Getter
-//	@Setter
-//	private List<Place> placeList;
-//	
-//	@Getter
-//	@Setter
-//	private List<Member> memberList;
 
 	public Club() {
 		super();

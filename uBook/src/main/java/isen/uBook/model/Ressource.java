@@ -25,10 +25,6 @@ public class Ressource {
 	
 	@Getter
 	@Setter
-	private String description;
-	
-	@Getter
-	@Setter
 	@ManyToOne
 	@JoinColumn(name="id_place")
 	private Place place;

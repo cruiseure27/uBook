@@ -19,7 +19,7 @@ public class BookingControllerImpl implements BookingController{
 	@Override
 	public ModelAndView crudChange(Booking booking, BindingResult bindingResult) {
 		ModelAndView view = new ModelAndView(VIEW_NAME);
-		System.out.println(booking);
+		System.out.println(booking.getMember().getFirstName());
 		if (bindingResult.hasErrors()) {
 			//log.warn("There are errors! " + bindingResult);
 			return view;
@@ -32,7 +32,7 @@ public class BookingControllerImpl implements BookingController{
 	@Override
 	public ModelAndView getBookingList() {
 		ModelAndView view = new ModelAndView(VIEW_NAME);
-		//view.addObject("booking", new Booking());
+		view.addObject("booking", new Booking());
 		return view;
 		
 	}

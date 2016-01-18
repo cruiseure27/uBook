@@ -53,7 +53,7 @@
 
 									<label class="col-md-6" for="ref">Member</label>
 									<div class="col-md-6">
-										<input type="text" class="form-control" id="member"  /><!-- th:field="*{member}" -->
+										<input type="text" class="form-control" id="member"  th:field="*{member.firstName}"/>
 									</div>
 								</div>
 								
@@ -62,7 +62,7 @@
 								<div class="form-group row">
 									<label class="col-md-6" for="type">Resources</label>
 									<div class="col-md-6">
-										<select class="form-control" id="ressource">  th:field="*{ressource.name}"
+										<select class="form-control" id="ressource"  > 
 											<option th:value="Type1">Type 1</option>
 											<option th:value="Type2">Type 2</option>
 											<option th:value="Type3">Type 3</option>

@@ -45,4 +45,5 @@ public class Booking {
 	@DateTimeFormat(pattern = "dd/MM/yyyy HH:mm")
 	private Date endDate;
 	
+	
 }
