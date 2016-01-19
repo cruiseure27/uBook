@@ -68,7 +68,7 @@
 			<div class="form-group row">
 				<label class="col-md-6" for="type">Place</label>
 				<div class="col-md-6">
-					<select class="form-control" id="place" >
+					<select class="form-control" id="place">
 						<option th:each="placeOccur : ${placesList}"
 							th:value="${placeOccur.id}" th:text="${placeOccur.name} ">Place
 							name</option>
@@ -76,13 +76,29 @@
 					</select>
 				</div>
 			</div>
+			<script th:inline="javascript">
+			/*Script pour adapter le menu ressource au choix du menu place*/
+			/*<![CDATA[*/
+			    var ressourceList=[[${ressourcesList}]];
+				$("#place").change(function() {
+					var idPlace=$("#place").val();
+					$("#ressource").empty();
+					 for (i in ressourceList ) {
+						if(ressourceList[i].place.id==idPlace){
+							$("#ressource").append("<option value="+ressourceList[i].id+">"+ ressourceList[i].name+" </option>")
+						}
+					} 
+				});
+			    
+			    /*]]>*/
+			</script>
 
 			<div class="form-group row">
 				<label class="col-md-6" for="type">Resources</label>
 				<div class="col-md-6">
 					<select class="form-control" id="ressource" th:field="*{ressource}">
-						<option th:each="ressourceOccur : ${ressourcesList}"
-							th:value="${ressourceOccur.id}" th:text="${ressourceOccur.name} ">Ressource
+					<option th:if="${ressourceOccur.place.id}==1" th:each="ressourceOccur : ${ressourcesList}"
+							th:value="${ressourceOccur.id}" th:text="${ressourceOccur.name} ">Place
 							name</option>
 
 					</select>
