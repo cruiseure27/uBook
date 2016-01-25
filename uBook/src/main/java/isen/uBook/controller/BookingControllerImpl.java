@@ -34,6 +34,7 @@ public class BookingControllerImpl implements BookingController{
 			log.warn("There are errors! " + bindingResult);
 			return getBookingList();
 		}
+		log.warn(booking.getBeginDate().toString());
 		bookingRepository.save(booking);
 		return getBookingList();
 	}
