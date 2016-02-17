@@ -1,5 +1,75 @@
 <!DOCTYPE html>
 <html>
+<head>
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+<link rel="stylesheet"
+	th:href="@{/css/bootstrap-datetimepicker.min.css}" />
+<link rel="stylesheet" th:href="@{/css/main.css}" />
+<link rel="stylesheet" th:href="@{/css/jquery.dataTables.min.css}" />
 
+
+<!-- <th:block layout:fragment="stylesheets"></th:block> -->
+</head>
+<body>
+	<!-- <div th:replace="fragments/header :: header">Header</div>
+	<div class="container" layout:fragment="content">Content</div>
+	<div th:replace="fragments/footer :: footer">Footer</div> -->
+	<!-- Start Navbar -->
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a href="/uBook" class="navbar-brand">SportBooking</a>
+			</div>
+		</div>
+	</nav>
+	<!-- Navbar End -->
+
+	<script th:src="@{/js/jquery.min.js}"></script>
+	<script th:src="@{/js/moment.js}"></script>
+	<script th:src="@{/js/transition.js}"></script>
+	<script th:src="@{/js/collapse.js}"></script>
+	<script th:src="@{/js/bootstrap.min.js}"></script>
+	<script th:src="@{/js/bootstrap-datetimepicker.min.js}"></script>
+	<script th:src="@{/js/jquery.dataTables.min.js}"></script>
+	<script th:inline="javascript">
+		function getPath(url) {
+			// ajout du contexte Tomcat
+			var context = /*[[@{/}]]*/'/';
+			return context + url;
+		}
+		$(document).ready(function() {
+		    $('#resa').DataTable();
+		} );
+	</script>
+	<div th:fragment="reservationsArray">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<table id="resa" class="table table-striped table-bordered">
+					<thead>
+						<tr class="filters">
+							<th>Nb</th>
+							<th>Member</th>
+							<th>Place</th>
+							<th>Ressource</th>
+							<th>Begin Date</th>
+							<th>End Date</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="bl : ${bookingsList}">
+							<td th:text="${bl.id}">...</td>
+							<td th:text="${bl.member.firstName +' '+ bl.member.lastName} ">...</td>
+							<td th:text="${bl.ressource.place.name}">...</td>
+							<td th:text="${bl.ressource.name}">...</td>
+							<td th:text="${#calendars.format(bl.beginDate,'dd MMMM yyyy - HH:mm')}">...</td>
+							<td th:text="${#calendars.format(bl.endDate,'dd MMMM yyyy - HH:mm')}">...</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+	</div>
+</body>
 
 </html>

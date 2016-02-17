@@ -22,6 +22,7 @@ public class Booking {
 	@Getter
 	@Setter
 	private Integer id;
+
 	
 	@Getter
 	@Setter
