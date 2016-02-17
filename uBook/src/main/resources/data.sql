@@ -31,9 +31,6 @@ INSERT INTO RESSOURCE (id,name,id_place) VALUES ('20','Voie 7','3');
 INSERT INTO RESSOURCE (id,name,id_place) VALUES ('21','Voie 8','3');
 INSERT INTO RESSOURCE (id,name,id_place) VALUES ('22','Voie 9','3');
 
-INSERT INTO MEMBER (id,first_name,last_name) VALUES ('1','Jean','Dupont');
-INSERT INTO MEMBER (id,first_name,last_name) VALUES ('2','Alexandre','Leroy');
-INSERT INTO MEMBER (id,first_name,last_name) VALUES ('3','Dany','Scayse');
-INSERT INTO MEMBER (id,first_name,last_name) VALUES ('4','Lilly','Lequeen');
+
 
 
