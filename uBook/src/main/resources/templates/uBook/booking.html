@@ -57,7 +57,7 @@
 								</div> -->
 
 			<div class="form-group row">
-
+				<div th:if="${#fields.hasErrors()}" th:errors="*{beginDate}">Ressource already used</div>
 				<label class="col-md-6" for="ref">Member</label>
 				<div class="col-md-6">
 					<select class="form-control" id="member" th:field="*{member}">
