@@ -66,6 +66,28 @@
 		</div>
 
 	</div>
+	<div class="modal-footer">
+		<button id="delete" type="button" class="btn btn-default">Delete Entry</button>
+	</div>
+	<script type="text/javascript">
+	$(document).ready(function() {
+	    var table = $('#members').DataTable();
+	 
+	    $('#members tbody').on( 'click', 'tr', function () {
+	        if ( $(this).hasClass('selected') ) {
+	            $(this).removeClass('selected');
+	        }
+	        else {
+	            table.$('tr.selected').removeClass('selected');
+	            $(this).addClass('selected');
+	        }
+	    } );
+	 
+	    $('#delete').click( function () {
+	        table.row('.selected').remove().draw( false );
+	    } );
+	} );
+	</script>
 </body>
 
 </html>
