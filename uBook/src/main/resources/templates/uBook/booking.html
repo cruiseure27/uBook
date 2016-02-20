@@ -7,13 +7,10 @@
 	th:href="@{/css/bootstrap-datetimepicker.min.css}" />
 <link rel="stylesheet" th:href="@{/css/main.css}" />
 
-<!-- <th:block layout:fragment="stylesheets"></th:block> -->
 </head>
 
 <body>
-	<!-- <div th:replace="fragments/header :: header">Header</div>
-	<div class="container" layout:fragment="content">Content</div>
-	<div th:replace="fragments/footer :: footer">Footer</div> -->
+
 
 	<script th:src="@{/js/jquery.min.js}"></script>
 	<script th:src="@{/js/moment.js}"></script>
@@ -42,25 +39,17 @@
 
 	<!-- Start Main Body Section -->
 	<div class="mainbody-section text-center">
-
+	
 		<form role="form" action="#" method="POST"
 			th:action="@{/uBook/booking}" th:object="${booking}">
 
-
-
-			<!-- 	<div class="form-group row">
-
-									<label class="col-md-6" for="ref">Booking number</label>
-									<div class="col-md-6">
-										<input type="text" class="form-control" id="id"  />
-									</div>
-								</div> -->
-
+<div th:if="${errorDate}" ><div class="alert alert-danger">
+  <strong>Reservation impossible!</strong> Il existe deja une reservation a cette date </div></div>
 			<div class="form-group row">
 				<div th:if="${#fields.hasErrors()}" th:errors="*{beginDate}">Ressource already used</div>
 				<label class="col-md-6" for="ref">Member</label>
 				<div class="col-md-6">
-					<select class="form-control" id="member" th:field="*{member}">
+					<select class="form-control" id="member" th:field="*{member}" required="required">
 						<option th:each="memberOccur : ${membersList}"
 							th:value="${memberOccur.id}"
 							th:text="${memberOccur.firstName} + ' '+ ${memberOccur.lastName} ">Part
@@ -74,7 +63,7 @@
 			<div class="form-group row">
 				<label class="col-md-6" for="type">Place</label>
 				<div class="col-md-6">
-					<select class="form-control" id="place">
+					<select class="form-control" id="place" required="required">
 						<option th:each="placeOccur : ${placesList}"
 							th:value="${placeOccur.id}" th:text="${placeOccur.name} ">Place
 							name</option>
@@ -102,7 +91,7 @@
 			<div class="form-group row">
 				<label class="col-md-6" for="type">Resources</label>
 				<div class="col-md-6">
-					<select class="form-control" id="ressource" th:field="*{ressource}">
+					<select class="form-control" id="ressource" th:field="*{ressource}" required="required">
 						<option th:if="${ressourceOccur.place.id}==1"
 							th:each="ressourceOccur : ${ressourcesList}"
 							th:value="${ressourceOccur.id}" th:text="${ressourceOccur.name} ">Place
@@ -116,7 +105,7 @@
 				<label class="col-md-6" for="type">Begin Date</label>
 				<div class='col-md-6'>
 					<div class='input-group date' id='picker' >
-						<input type='text' class="form-control" th:field="*{beginDate}" id="beginDate" /> <span
+						<input type='text' class="form-control" th:field="*{beginDate}" id="beginDate" required="required"/> <span
 							class="input-group-addon"> <span
 							class="glyphicon glyphicon-calendar"></span>
 						</span>
@@ -139,45 +128,27 @@
 			<div class="form-group row">
 				<label class="col-md-6" for="type">End Date</label>
 				<div class='col-md-6'>
-					<div class='input-group date' id='picker2' >
-						<input type='text' class="form-control" th:field="*{endDate}" /> <span
-							class="input-group-addon"> <span
-							class="glyphicon glyphicon-calendar"></span>
-						</span>
+					<div class='input-group date' id='dateFin' >
+						<label id="endDate"></label> 
+						<script type="text/javascript"> 
+						$("#picker").on("dp.change", function (e) {
+							var date = e.date.hour(e.date.hour()+1);
+		                    $("#endDate").html(date.format('DD/MM/YYYY hh:mm'));
+		                });</script>
 					</div>
 				</div>
-				<script type="text/javascript">
-		            $(function () {
-		                $('#picker2').datetimepicker(
-		                		{
-		                			locale: 'fr',
-		                		    stepping: 30,
-		                		    enabledHours: [9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
-		                		}
-		                		);
-
-		                $("#picker").on("dp.change", function (e) {
-		                    $('#picker2').data("DateTimePicker").minDate(e.date);
-		                });
-		                $("#picker2").on("dp.change", function (e) {
-		                    $('#picker').data("DateTimePicker").maxDate(e.date);
-		                });
-		            });
-        		</script>
 			</div>
-
-
+			
 			<div class="modal-footer">
 				<button id="cancel" type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
 				<button type="submit" value="submit" class="btn btn-primary">Book</button>
 			</div>
-			<script type="text/javascript">
+		</form>
+	</div>
+<script type="text/javascript">
 			    document.getElementById("cancel").onclick = function () {
 			        location.href = "/uBook/";
 			    };
-			</script>
-		</form>
-	</div>
-
+			</script>	
 </body>
 </html>

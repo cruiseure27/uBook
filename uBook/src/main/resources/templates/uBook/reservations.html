@@ -62,7 +62,6 @@
 							<td th:text="${bl.ressource.place.name}">...</td>
 							<td th:text="${bl.ressource.name}">...</td>
 							<td th:text="${#calendars.format(bl.beginDate,'dd MMMM yyyy - HH:mm')}">...</td>
-							<td th:text="${#calendars.format(bl.endDate,'dd MMMM yyyy - HH:mm')}">...</td>
 						</tr>
 					</tbody>
 				</table>
@@ -70,6 +69,28 @@
 		</div>
 
 	</div>
+	<div class="modal-footer">
+		<button id="delete" type="button" class="btn btn-default">Delete Entry</button>
+	</div>
+	<script type="text/javascript">
+	$(document).ready(function() {
+	    var table = $('#resa').DataTable();
+	 
+	    $('#resa tbody').on( 'click', 'tr', function () {
+	        if ( $(this).hasClass('selected') ) {
+	            $(this).removeClass('selected');
+	        }
+	        else {
+	            table.$('tr.selected').removeClass('selected');
+	            $(this).addClass('selected');
+	        }
+	    } );
+	 
+	    $('#delete').click( function () {
+	        table.row('.selected').remove().draw( false );
+	    } );
+	} );
+	</script>
 </body>
 
 </html>

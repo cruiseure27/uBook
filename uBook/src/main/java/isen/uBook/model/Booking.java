@@ -40,11 +40,6 @@ public class Booking {
 	@Setter
 	@DateTimeFormat(pattern = "dd/MM/yyyy HH:mm")
 	private Date beginDate;
-	
-	@Getter
-	@Setter
-	@DateTimeFormat(pattern = "dd/MM/yyyy HH:mm")
-	private Date endDate;
-	
+		
 	
 }

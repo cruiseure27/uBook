@@ -1,26 +1,24 @@
 package isen.uBook.repository;
 
-import static org.junit.Assert.assertEquals;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.ConfigFileApplicationContextInitializer;
+import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import isen.uBook.Application;
 import isen.uBook.model.Member;
+import junit.framework.TestCase;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-public class RepositoryTest {
-	@Autowired
-	private BookingRepository bookingRepository;
+@SpringApplicationConfiguration(classes = Application.class)
+@ContextConfiguration(initializers = ConfigFileApplicationContextInitializer.class)
+public class RepositoryTest extends TestCase{
 	@Autowired
 	protected MemberRepository memberRepository;
-	@Autowired
-	private ClubRepository clubRepository;
-	@Autowired
-	private PlaceRepository placeRepository;
-	@Autowired
-	private RessourceRepository ressourceRepository;
+
 	
 	
 	 @Test

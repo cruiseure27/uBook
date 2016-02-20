@@ -47,14 +47,14 @@
 			<div class="form-group row">
 				<label class="col-md-6" for="type">First Name</label>
 				<div class="col-md-6">
-					<input type="text" class="form-control"  th:field="*{firstName}"/>
+					<input type="text" class="form-control"  th:field="*{firstName}" required="required"/>
 				</div>
 			</div>
 			
 			<div class="form-group row">
 				<label class="col-md-6" for="type">Last Name</label>
 				<div class="col-md-6">
-					<input type="text" class="form-control"  th:field="*{lastName}"/>
+					<input type="text" class="form-control"  th:field="*{lastName}" required="required"/>
 				</div>
 			</div>
 
@@ -63,7 +63,7 @@
 				<label class="col-md-6" for="type">BirthDate</label>
 				<div class='col-md-6'>
 					<div class='input-group date' id='picker2' >
-						<input type='text' class="form-control" th:field="*{birthDate}" /> <span
+						<input type='text' class="form-control" th:field="*{birthDate}" required="required" /> <span
 							class="input-group-addon"> <span
 							class="glyphicon glyphicon-calendar"></span>
 						</span>

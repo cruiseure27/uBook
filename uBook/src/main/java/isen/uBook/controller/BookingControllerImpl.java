@@ -1,8 +1,11 @@
 package isen.uBook.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.servlet.ModelAndView;
 
 import isen.uBook.model.Booking;
@@ -34,7 +37,23 @@ public class BookingControllerImpl implements BookingController{
 			log.warn("There are errors! " + bindingResult);
 			return getBookingList();
 		}
-		log.warn(booking.getBeginDate().toString());
+		List<Booking> bookingList =bookingRepository.findAll();
+		for(Booking book : bookingList){
+			if(book.getRessource()==booking.getRessource()){
+				if(book.getBeginDate().getTime()==booking.getBeginDate().getTime()){
+					bindingResult.addError(new FieldError("beginDate","beginDate","Une réservation est déjà effectué à cette date !"));
+					bindingResult.reject("beginDate","Une réservation est déjà effectué à cette date !");
+					ModelAndView view = new ModelAndView(VIEW_NAME);
+					view.addObject("errorDate",true);
+					view.addObject("booking", new Booking());
+					view.addObject("bookingsList",bookingRepository.findAll());
+					view.addObject("membersList", memberRepository.findAll());
+					view.addObject("placesList", placeRepository.findAll());
+					view.addObject("ressourcesList", ressourceRepository.findAll());
+					return view;
+				}
+			}
+		}
 		bookingRepository.save(booking);
 		return getBookingList();
 	}
@@ -42,6 +61,7 @@ public class BookingControllerImpl implements BookingController{
 	@Override
 	public ModelAndView getBookingList() {
 		ModelAndView view = new ModelAndView(VIEW_NAME);
+		view.addObject("errorDate",false);
 		view.addObject("booking", new Booking());
 		view.addObject("bookingsList",bookingRepository.findAll());
 		view.addObject("membersList", memberRepository.findAll());
