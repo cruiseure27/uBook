@@ -84,9 +84,14 @@
 
 
 			<div class="modal-footer">
-				<button type="button" class="btn btn-default">Cancel</button>
+				<button id="cancel" type="button" class="btn btn-default">Cancel</button>
 				<button type="submit" value="submit" class="btn btn-primary">Add Member</button>
 			</div>
+			<script type="text/javascript">
+			    document.getElementById("cancel").onclick = function () {
+			        location.href = "/uBook/";
+			    };
+			</script>	
 		</form>
 	</div>
 
