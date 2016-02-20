@@ -23,3 +23,6 @@ Nous avons imaginé un système qui puisse être relativement générique, pour 
 Ces clubs présente toujours un ou plusieurs lieux (salles de sport, etc...) où exercer son sport, ce qui est symbolisé par la classe Place.
 + Ressource (ressource) :
 Ces lieux sont souvent subdivisés en plus petites entités, comme des terrains dans le cas d'une salle de tennis, des piscines ou des voix d'escalades. Ce sont les Ressources.
+
+### See Reservations
+Permet de consulter et gérer les différentes réservations déjà enregistrées.
