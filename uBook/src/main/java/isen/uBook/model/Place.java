@@ -15,9 +15,9 @@ public class Place {
 
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Getter
 	@Setter
-	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer id;
 	
 	@Getter
