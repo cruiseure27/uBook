@@ -16,6 +16,7 @@ public interface DisplayBookController {
 	 */
 	@RequestMapping(value = "uBook/reservations", method = RequestMethod.GET)
 	public ModelAndView getBookingList();
-
-
+	
+	@RequestMapping(value = "uBook/reservations", method = RequestMethod.DELETE)
+	public void deleteBookingById(Integer id);
 }

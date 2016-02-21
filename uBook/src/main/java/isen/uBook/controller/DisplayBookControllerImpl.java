@@ -2,6 +2,8 @@ package isen.uBook.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import isen.uBook.repository.BookingRepository;
@@ -20,6 +22,11 @@ public class DisplayBookControllerImpl implements DisplayBookController{
 		ModelAndView view = new ModelAndView(VIEW_NAME);
 		view.addObject("bookingsList",bookingRepository.findAll());
 		return view;
+	}
+	
+	@RequestMapping(value = "uBook/reservations", method = RequestMethod.DELETE)
+	public void deleteBookingById(Integer id){
+		bookingRepository.delete(id);
 	}
 	
 }

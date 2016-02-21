@@ -52,7 +52,6 @@
 							<th>Place</th>
 							<th>Ressource</th>
 							<th>Begin Date</th>
-							<th>End Date</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -87,6 +86,16 @@
 	    } );
 	 
 	    $('#delete').click( function () {
+	    	var toDelete = table.row('.selected').data()[0];
+	    	console.log(toDelete);
+	    	$.ajax({
+	    	    type: "DELETE",
+	    	    url: "/uBook/reservations",
+	    	    data: toDelete,
+	    	    success: function(msg){
+	    	        alert("Data Deleted: " + msg);
+	    	    }
+	    	});
 	        table.row('.selected').remove().draw( false );
 	    } );
 	} );
