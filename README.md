@@ -41,8 +41,9 @@ Il y a un controller par page web (vue). Chacun controller contient l'ensemble d
 Les repositories représentent les dépôts, le moyen d'intéragir avec la base de données.
 
 ### Tests
-Comme expliqué en cours, nous avions déjà commencé à implémenter notre projet avant que soité évoqué l'idée de faire du TDD.
+Comme expliqué en cours, nous avions déjà commencé à implémenter notre projet avant que soit évoqué l'idée de faire du TDD.
 De fait, nous avons continué ainsi. Nous avons donc fait quelques tests par la suite.
-Il a été assez difficile de faire configuration des tests pour les repositories, mais nous avons fini par y arrivé et c'est sur la mise en place de ces tests que nous nous sommes concentré.
+Il a été assez difficile de faire configuration des tests pour les repositories, mais nous avons fini par y arriver et c'est sur la mise en place de ces tests que nous nous sommes concentrés.
 
+### N.B
 Pour notre projet, nous avons en plus créé un script contenant plusieurs requetes SQL pour créer en base les Places et Ressources. Nous avons pris l'exemple du club d'escalade Whatsup, qui propose trois salles différentes (Lille, Villeneuve d'Ascq et Wambrechies), chacune des salles ayant des voies ou des blocs plus ou moins nombreux.
