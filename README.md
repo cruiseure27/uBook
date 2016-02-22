@@ -1,7 +1,8 @@
 # uBook
 
 ## Description du Projet
-Projet JEE Spring Boot
+Projet JEE  
+Utilise Spring Boot, Hibernate et le moteur de templates Thymeleaf.
 
 Utilitaire Web conçu dans le but de pouvoir gérer un club de sport. 
 Cet outil est imaginé comme une aide à la gestion des réservations des différentes salles, par les membres du club.
@@ -26,3 +27,19 @@ Ces lieux sont souvent subdivisés en plus petites entités, comme des terrains 
 
 ### See Reservations
 Permet de consulter et gérer les différentes réservations déjà enregistrées.
+
+## Architecture du projet
+Dans cette partie, une brève description des différents packages et de ce qu'ils contiennent
+
+### Model
+Dans ce package, toutes les classes java relatives au modèle de données sont présentes.
+
+### Controller
+
+### Repository
+
+
+### Tests
+Comme expliqué en cours, nous avions déjà commencé à implémenter notre projet avant que soité évoqué l'idée de faire du TDD.
+De fait, nous avons continué ainsi. Nous avons donc fait quelques tests par la suite.
+Il a été assez difficile de faire configuration des tests pour les repositories, mais nous avons fini par y arrivé et c'est sur la mise en place de ces tests que nous nous sommes concentré.
