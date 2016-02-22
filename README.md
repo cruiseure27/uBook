@@ -32,14 +32,17 @@ Permet de consulter et gérer les différentes réservations déjà enregistrée
 Dans cette partie, une brève description des différents packages et de ce qu'ils contiennent
 
 ### Model
-Dans ce package, toutes les classes java relatives au modèle de données sont présentes.
+Dans ce package, toutes les classes java relatives au modèle de données sont présentes qui sont : Club, Place, Ressource, Member et Booking.
 
 ### Controller
+Il y a un controller par page web (vue). Chacun controller contient l'ensemble des méthodes nécessaires à la modification d'un ModelAndView (on modifie le modèle et la vue sera modifiée en conséquence)
 
 ### Repository
-
+Les repositories représentent les dépôts, le moyen d'intéragir avec la base de données.
 
 ### Tests
 Comme expliqué en cours, nous avions déjà commencé à implémenter notre projet avant que soité évoqué l'idée de faire du TDD.
 De fait, nous avons continué ainsi. Nous avons donc fait quelques tests par la suite.
 Il a été assez difficile de faire configuration des tests pour les repositories, mais nous avons fini par y arrivé et c'est sur la mise en place de ces tests que nous nous sommes concentré.
+
+Pour notre projet, nous avons en plus créé un script contenant plusieurs requetes SQL pour créer en base les Places et Ressources. Nous avons pris l'exemple du club d'escalade Whatsup, qui propose trois salles différentes (Lille, Villeneuve d'Ascq et Wambrechies), chacune des salles ayant des voies ou des blocs plus ou moins nombreux.
